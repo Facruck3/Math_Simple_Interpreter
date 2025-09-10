@@ -1,0 +1,30 @@
+"123"                    // TOK_NUM "123"
+"3.14"                   // TOK_FLOAT "3.14"
+"123.456.789"           // Error (doble punto)
+".123"                  // Error (punto al inicio)
+"123."                  // TOK_FLOAT "123." (¿debería ser válido?)
+"1,000"                 // TOK_FLOAT "1,000" (¿coma como decimal?)
+
+"x"                     // TOK_VAR "x"
+"_variable"             // TOK_VAR "_variable"
+"var123"                // TOK_VAR "var123"
+"very_long_variable_name_that_exceeds_limit_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" // Error
+
+"2 + 3 * 4"             // NUM, ADD, NUM, MULT, NUM
+"x = y + 5"             // VAR, ASSIGN, VAR, ADD, NUM
+"2 ^ 3"                 // NUM, POWER, NUM
+"sqrt(16)"              // SQUARE, LPAR, NUM, RPAR
+
+"(2 + 3) * 4"           // LPAR, NUM, ADD, NUM, RPAR, MULT, NUM
+"func(x, y)"            // VAR, LPAR, VAR, COMM, VAR, RPAR
+"array[5]"              // VAR, LCOR, NUM, RCOR
+
+""                      // Nada (empty input)
+"     "                 // Solo espacios
+"123abc"                // NUM "123" + VAR "abc"
+"2..3"                  // Error (doble punto)
+"$invalid"              // Error (carácter inválido)
+"x = "                  // VAR, ASSIGN → ¿qué sigue?
+
+"2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2+2" // Muchos tokens
+"a=b=c=d=e=f=g=h=i=j=k=l=m=n=o=p=q=r=s=t=u=v=w=x=y=z" // Muchas asignaciones

@@ -1,0 +1,7 @@
+maybe in the future:
+
+- add functions.
+- make a grapichs-> (graphs and functions f(x) = ... ).
+- ways to view the values (hex, binary , etc).
+- handling input.
+- etc.
